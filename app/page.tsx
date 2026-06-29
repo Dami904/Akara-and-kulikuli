@@ -392,13 +392,13 @@ export default function Home() {
           </p>
           <div className="mt-9 flex flex-wrap gap-3 justify-center">
             <a
-              href="mailto:hello@web3nova.com"
+              href="mailto:bernard@web3nova.org"
               className="bg-palm text-paper font-display font-bold px-8 py-4 rounded-lg border-2 border-ink shadow-[5px_5px_0_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_0_var(--color-ink)] transition-all"
             >
               Start your website
             </a>
             <a
-              href="https://wa.me/2348000000000"
+              href="https://wa.me/2347043314162"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-paper font-display font-bold px-8 py-4 rounded-lg border-2 border-ink hover:bg-ink hover:text-paper transition-colors"
@@ -426,8 +426,21 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-6 font-mono text-xs tracking-wide uppercase">
-            {["Instagram", "Twitter / X", "WhatsApp"].map((s) => (
-              <a key={s} href="#" className="text-paper/60 hover:text-palm transition-colors">{s}</a>
+            {[
+              { label: "Instagram", href: "https://www.instagram.com/web3_nova/" },
+              { label: "Twitter / X", href: "https://x.com/web3_nova" },
+              { label: "TikTok", href: "https://vm.tiktok.com/ZS96C7GskB8eP-qS5aQ/" },
+              { label: "WhatsApp", href: "https://wa.me/2347043314162" },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-paper/60 hover:text-palm transition-colors"
+              >
+                {s.label}
+              </a>
             ))}
           </div>
         </div>
