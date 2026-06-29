@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+const sans = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "Web3Nova — Websites for Akara & Kulikuli Businesses",
+  title: "Web3Nova — Bold websites for akara & kulikuli brands",
   description:
-    "We build beautiful, fast websites for akara and kulikuli entrepreneurs in Nigeria. Take orders online, grow your brand, and dominate your city.",
+    "From the frying pan to the front page. We design fast, beautiful websites for Nigeria's akara and kulikuli food businesses — order-ready and built to grow your brand.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} antialiased`}>
-      <body className="bg-white text-[#111] min-h-screen">{children}</body>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable} antialiased`}
+    >
+      <body className="min-h-screen overflow-x-clip">{children}</body>
     </html>
   );
 }

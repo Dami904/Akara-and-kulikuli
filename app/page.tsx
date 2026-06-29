@@ -4,349 +4,435 @@ import Image from "next/image";
 
 const niches = [
   {
-    tag: "🫘 Akara",
-    title: "Akara Businesses",
-    desc: "From roadside frying pots to branded breakfast cafés — we build sites that help akara entrepreneurs take orders, list their menu, and go viral.",
-    color: "orange",
-    images: [
-      { src: "/images/hero.jpg", alt: "Premium akara served" },
-      { src: "/images/akara-bread.jpg", alt: "Akara in agege bread" },
-      { src: "/images/frying-2.jpg", alt: "Akara frying street-style" },
-    ],
+    key: "akara",
+    label: "The morning rush",
+    name: "Akara",
+    accent: "palm" as const,
+    desc: "Roadside frying pots are turning into branded breakfast spots. We build sites that show your menu, take pre-orders before the oil is even hot, and make people drive across town for your beans.",
+    lead: "/images/hero.jpg",
+    leadAlt: "Golden akara served with dipping sauce",
+    a: "/images/frying-2.jpg",
+    aAlt: "Akara frying street-style in a wide pan",
+    b: "/images/akara-bread.jpg",
+    bAlt: "Akara tucked into agege bread",
   },
   {
-    tag: "🥜 Kulikuli",
-    title: "Kulikuli Businesses",
-    desc: "Nigeria's crunchiest snack is getting premium packaging and brand identities. We help kulikuli sellers go from market stalls to online stores with real brand presence.",
-    color: "amber",
-    images: [
-      { src: "/images/kulikuli-owner.jpg", alt: "Kulikuli brand owner" },
-      { src: "/images/kulikuli-gold-pack.jpg", alt: "Gold branded kulikuli pouch" },
-      { src: "/images/kulikuli-floral-pack.jpg", alt: "Floral branded kulikuli pouch" },
-    ],
+    key: "kulikuli",
+    label: "The shelf snack",
+    name: "Kulikuli",
+    accent: "nut" as const,
+    desc: "Crunchy groundnut cake is going premium — gold pouches, real labels, real brands. We give kulikuli makers an online store worth screenshotting, so a snack from one market reaches three states.",
+    lead: "/images/kulikuli-owner.jpg",
+    leadAlt: "Kulikuli founder holding her branded pack",
+    a: "/images/kulikuli-gold-pack.jpg",
+    aAlt: "Gold-foil branded kulikuli pouch",
+    b: "/images/kulikuli-floral-pack.jpg",
+    bAlt: "Floral-printed kulikuli pouch",
   },
 ];
 
-const services = [
-  { icon: "🌐", title: "Brand Website", desc: "A stunning homepage that tells your food story — menu, photos, location, and social links all in one place." },
-  { icon: "🛒", title: "Online Ordering", desc: "Customers order directly via WhatsApp or a custom checkout. No third-party commission fees." },
-  { icon: "📱", title: "Mobile-First Design", desc: "95% of your customers are on phones. Every site we build is flawless on mobile from day one." },
-  { icon: "📸", title: "Photo Gallery & Menu", desc: "Mouth-watering food galleries with a clean digital menu — every variant laid out beautifully." },
-  { icon: "📍", title: "Location & Hours", desc: "Google Maps embed, opening hours, and delivery zones so customers always know where to find you." },
-  { icon: "⚡", title: "Fast & SEO-Ready", desc: "Built with Next.js for lightning speed. Rank on Google when people search your product in your city." },
+const offerings = [
+  { title: "Brand website", desc: "A homepage that carries your story — who you are, what you sell, where to find you." },
+  { title: "Order on WhatsApp", desc: "A tap-to-order button wired to your phone. No commission, no middleman, no app." },
+  { title: "Built for phones", desc: "Almost every customer is on mobile. Your site looks sharp there first, always." },
+  { title: "Menu & gallery", desc: "Every variant — spicy, plain, combo, pack sizes — laid out to make people hungry." },
+  { title: "Found on the map", desc: "Google Maps, hours, and delivery zones so nobody guesses where you are." },
+  { title: "Fast & searchable", desc: "Loads in a blink and shows up when people search your food in your city." },
 ];
 
 const steps = [
-  { num: "01", title: "Brief & Discovery", desc: "We hop on a quick call, learn your brand, your menu, your vibe. You fill in a simple form — we handle the rest." },
-  { num: "02", title: "Design & Build", desc: "Our team designs your site, writes the content, and builds it in Next.js — fast, modern, mobile-perfect." },
-  { num: "03", title: "Launch & Grow", desc: "You review, we tweak, then go live. We hand you the keys with a full walkthrough and 30-day support." },
+  { n: "01", title: "Tell us your story", desc: "A short call and a simple form. Your menu, your prices, your vibe — we take it from there." },
+  { n: "02", title: "We design & build", desc: "Photos, words, and code come together in about a week. You watch it take shape." },
+  { n: "03", title: "Go live & grow", desc: "We launch, walk you through it, and stay on for 30 days while the orders start." },
 ];
 
-const testimonials = [
-  { quote: "Web3Nova built my akara site in 12 days. Now I get pre-orders every morning before I even start frying. Revenue doubled in month one.", name: "Adaeze Nwosu", biz: "Akara by Ada, Enugu", initial: "A", color: "orange" },
-  { quote: "I was sceptical a website could help sell kulikuli. Two months later I'm shipping across three states because customers find me on Google.", name: "Bola Okafor", biz: "Bola's Kulikuli, Lagos", initial: "B", color: "amber" },
-  { quote: "The WhatsApp order button alone changed my life. People screenshot my menu and share it. My business finally feels proper.", name: "Fatima Musa", biz: "Fatima's Akara Spot, Abuja", initial: "F", color: "orange" },
+const quotes = [
+  { accent: "palm" as const, text: "It was live in twelve days. Now people pre-order before I start frying. I doubled what I make in a month.", name: "Adaeze Nwosu", biz: "Akara by Ada — Enugu" },
+  { accent: "nut" as const, text: "I didn't think a website could move kulikuli. Two months later I'm shipping to three states because people find me online.", name: "Bola Okafor", biz: "Bola's Kulikuli — Lagos" },
+  { accent: "leaf" as const, text: "The order button alone changed everything. Customers screenshot my menu and send it to their people. Business feels proper now.", name: "Fatima Musa", biz: "Fatima's Spot — Abuja" },
 ];
 
 const plans = [
-  {
-    name: "Starter",
-    price: "₦150k",
-    desc: "Perfect for home-based food sellers",
-    features: ["5-page brand website", "Menu & photo gallery", "WhatsApp order button", "Mobile-optimised", "1 month support"],
-    featured: false,
-  },
-  {
-    name: "Growth",
-    price: "₦280k",
-    desc: "For food businesses ready to scale",
-    features: ["Everything in Starter", "Online ordering system", "Google Maps & SEO setup", "Instagram feed integration", "3 months support"],
-    featured: true,
-  },
-  {
-    name: "Premium",
-    price: "₦500k",
-    desc: "Full-service for premium food brands",
-    features: ["Everything in Growth", "Custom brand identity", "Delivery zone map", "Loyalty / waitlist system", "6 months support"],
-    featured: false,
-  },
+  { name: "Roadside", price: "150k", note: "for the home kitchen", feats: ["5-page website", "Menu & gallery", "WhatsApp orders", "Mobile-ready", "1 month support"], featured: false },
+  { name: "Storefront", price: "280k", note: "for the growing brand", feats: ["Everything in Roadside", "Online order system", "Maps & search setup", "Instagram feed", "3 months support"], featured: true },
+  { name: "Flagship", price: "500k", note: "for the premium label", feats: ["Everything in Storefront", "Custom brand identity", "Delivery-zone map", "Loyalty / waitlist", "6 months support"], featured: false },
 ];
 
-const gallery = [
-  { src: "/images/akara-plate-2.jpg", alt: "Fresh akara on a plate" },
-  { src: "/images/kulikuli-owner.jpg", alt: "Kulikuli brand owner" },
-  { src: "/images/frying-2.jpg", alt: "Akara frying street-style" },
-  { src: "/images/kulikuli-gold-pack.jpg", alt: "Premium gold kulikuli pack" },
-  { src: "/images/akara-bread.jpg", alt: "Akara in agege bread" },
-  { src: "/images/kulikuli-floral-pack.jpg", alt: "Floral kulikuli pack" },
-];
+const tickerWords = ["Fresh akara", "Crunchy kulikuli", "Order online", "Built for phones", "Live in 14 days", "Made in Naija"];
+
+/* ─── SMALL PIECES ────────────────────────────────────────────── */
+
+const accentBg: Record<string, string> = { palm: "bg-palm", nut: "bg-nut", leaf: "bg-leaf", gold: "bg-gold" };
+const accentText: Record<string, string> = { palm: "text-palm", nut: "text-nut", leaf: "text-leaf", gold: "text-gold" };
+
+function Eyebrow({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className={`font-mono text-[11px] tracking-[0.25em] uppercase ${className}`}>{children}</span>
+  );
+}
 
 /* ─── PAGE ────────────────────────────────────────────────────── */
 
 export default function Home() {
   return (
     <>
-      {/* ── NAVBAR ─────────────────────────────────────────────── */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-14 py-4 bg-white/95 backdrop-blur border-b border-gray-100">
-        <span className="text-lg font-bold tracking-tight text-[#111]">
-          web3<span className="text-orange-500">nova</span>
-        </span>
-        <div className="hidden md:flex items-center gap-7 text-sm text-gray-500">
-          {["Services", "Niches", "Pricing", "Contact"].map((l) => (
-            <a key={l} href={`#${l.toLowerCase()}`} className="hover:text-[#111] transition-colors">{l}</a>
+      {/* ── NAV ─────────────────────────────────────────────────── */}
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-5 md:px-12 py-4 bg-paper/90 backdrop-blur border-b-2 border-ink">
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="grid place-items-center w-7 h-7 rounded-md bg-ink">
+            <span className="w-2.5 h-2.5 rounded-full bg-palm" />
+          </span>
+          <span className="font-display font-extrabold text-lg tracking-tight">
+            web3<span className="text-palm">nova</span>
+          </span>
+        </a>
+        <div className="hidden md:flex items-center gap-8">
+          {["Niches", "What you get", "Pricing"].map((l) => (
+            <a key={l} href={`#${l.replace(/\s+/g, "-").toLowerCase()}`} className="font-mono text-xs tracking-wide uppercase text-ink/60 hover:text-ink transition-colors">
+              {l}
+            </a>
           ))}
         </div>
-        <a href="#contact" className="bg-orange-500 hover:bg-orange-600 transition-colors text-white text-sm font-semibold px-5 py-2.5 rounded-lg">
-          Get Your Website →
+        <a
+          href="#contact"
+          className="bg-ink text-paper font-display font-bold text-sm px-5 py-2.5 rounded-lg shadow-[4px_4px_0_0_var(--color-palm)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--color-palm)] transition-all"
+        >
+          Start a site
         </a>
       </nav>
 
-      <main>
-        {/* ── HERO ───────────────────────────────────────────────── */}
-        <section className="relative grid md:grid-cols-2 gap-10 items-center px-6 md:px-14 py-20 min-h-[90vh] bg-[#fffaf5]">
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-[500px] h-[500px] bg-orange-100 rounded-full blur-[80px] opacity-60" />
-            <div className="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-amber-100 rounded-full blur-[80px] opacity-40" />
-          </div>
-
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-orange-600 text-xs font-semibold px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-              Nigeria&apos;s Street Food is Going Premium
-            </div>
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.08] tracking-tight text-[#111] mb-5">
-              We Build Websites<br />
-              for <span className="text-orange-500">Akara</span> &<br />
-              <span className="text-amber-600">Kulikuli</span> Businesses.
+      <main id="top">
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <section className="px-5 md:px-12 pt-14 md:pt-20 pb-16 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <Eyebrow className="text-nut">Web studio · building for Naija food</Eyebrow>
+            <h1 className="font-display font-extrabold tracking-[-0.02em] leading-[0.92] text-[clamp(2.6rem,7vw,5rem)] mt-5">
+              Bold websites
+              <br />
+              for <span className="text-palm">akara</span> &amp;
+              <br />
+              <span className="text-nut">kulikuli</span> brands.
             </h1>
-            <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
-              Beautiful, fast websites that take orders, tell your food story, and grow your brand online — built specifically for Nigerian street food entrepreneurs.
+            <p className="mt-6 text-lg leading-relaxed text-ink/70 max-w-md">
+              From the frying pan to the front page. We design fast, beautiful sites that take orders and turn your street-food into a brand people remember.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="bg-orange-500 hover:bg-orange-600 transition-colors text-white font-bold px-7 py-3.5 rounded-xl text-base shadow-lg shadow-orange-200">
-                Start Your Website Today
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#contact"
+                className="bg-palm text-paper font-display font-bold px-7 py-3.5 rounded-lg border-2 border-ink shadow-[5px_5px_0_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_0_var(--color-ink)] transition-all"
+              >
+                Start your website
               </a>
-              <a href="#niches" className="border border-gray-200 hover:border-gray-400 transition-colors text-[#111] font-semibold px-7 py-3.5 rounded-xl text-base bg-white">
-                See What We Build ↓
+              <a
+                href="#niches"
+                className="bg-paper font-display font-bold px-7 py-3.5 rounded-lg border-2 border-ink hover:bg-ink hover:text-paper transition-colors"
+              >
+                See the work
               </a>
+            </div>
+            <div className="mt-9 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[11px] tracking-wide uppercase text-ink/55">
+              <span><b className="text-ink">50+</b> brands built</span>
+              <span><b className="text-ink">14-day</b> delivery</span>
+              <span><b className="text-ink">orders</b> on whatsapp</span>
             </div>
           </div>
 
-          <div className="relative z-10 grid grid-cols-2 gap-3">
-            <div className="relative rounded-2xl overflow-hidden border border-orange-100 shadow-lg h-[340px] col-span-2">
-              <Image src="/images/kulikuli-owner.jpg" alt="Kulikuli business owner" fill className="object-cover object-top" priority />
-              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur border border-orange-100 rounded-xl px-4 py-3 text-sm shadow">
-                <span className="text-orange-500 text-2xl font-extrabold block leading-none">50+</span>
-                <span className="text-gray-600">Food brands launched</span>
+          {/* Composed anchor: real founder, framed like a printed photo */}
+          <div className="relative mx-auto w-[min(20rem,78vw)] sm:w-[min(22rem,70vw)] lg:w-full lg:max-w-none mt-12 mb-10 lg:my-0">
+            {/* offset color block behind */}
+            <div className="absolute inset-0 translate-x-3.5 translate-y-3.5 md:translate-x-5 md:translate-y-5 bg-leaf rounded-2xl" aria-hidden />
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-ink">
+              <Image src="/images/kulikuli-owner.jpg" alt="A kulikuli founder holding her branded pack" fill priority className="object-cover object-top" sizes="(max-width:1024px) 78vw, 40vw" />
+            </div>
+            {/* rotated stamp */}
+            <div className="absolute -top-7 -left-3 sm:-left-5 rotate-[-12deg]">
+              <div className="grid place-items-center w-[4.5rem] h-[4.5rem] sm:w-24 sm:h-24 rounded-full bg-gold border-2 border-ink text-center shadow-[3px_3px_0_0_var(--color-ink)]">
+                <span className="font-mono text-[9px] sm:text-[10px] leading-tight tracking-widest uppercase font-bold">
+                  Fresh
+                  <br />
+                  daily
+                  <br />
+                  ★
+                </span>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow h-[180px]">
-              <Image src="/images/hero.jpg" alt="Premium akara" fill className="object-cover" />
-            </div>
-            <div className="relative rounded-2xl overflow-hidden border border-amber-100 shadow h-[180px]">
-              <Image src="/images/kulikuli-gold-pack.jpg" alt="Branded kulikuli pack" fill className="object-cover" />
+            {/* small pinned product label */}
+            <div className="absolute -bottom-6 -right-2 sm:right-2 md:right-6 rotate-[6deg] w-24 sm:w-28 rounded-lg overflow-hidden border-2 border-ink shadow-[3px_3px_0_0_var(--color-ink)] bg-paper">
+              <div className="relative aspect-square">
+                <Image src="/images/hero.jpg" alt="Golden akara" fill className="object-cover" sizes="120px" />
+              </div>
+              <div className="px-2 py-1 font-mono text-[9px] tracking-widest uppercase">Akara · hot</div>
             </div>
           </div>
         </section>
 
-        {/* ── STATS ──────────────────────────────────────────────── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 border-y border-gray-100 bg-gray-50">
-          {[
-            { num: "50+", label: "Websites Launched" },
-            { num: "14", label: "Days Avg Delivery" },
-            { num: "98%", label: "Client Satisfaction" },
-            { num: "3×", label: "Avg Revenue Increase" },
-          ].map((s, i) => (
-            <div key={i} className={`px-8 py-9 text-center ${i < 3 ? "border-r border-gray-100" : ""}`}>
-              <div className="text-3xl md:text-4xl font-extrabold text-orange-500 tracking-tight">{s.num}</div>
-              <div className="text-gray-400 text-sm mt-1">{s.label}</div>
-            </div>
-          ))}
+        {/* ── TICKER (signature) ────────────────────────────────── */}
+        <div className="bg-ink text-paper border-y-2 border-ink overflow-hidden py-3 select-none">
+          <div className="ticker-track flex w-max">
+            {[0, 1].map((dup) => (
+              <div key={dup} className="flex shrink-0" aria-hidden={dup === 1}>
+                {tickerWords.map((w, i) => (
+                  <span key={i} className="flex items-center font-display font-bold text-xl md:text-2xl px-6">
+                    {w}
+                    <span className="ml-6 text-palm">●</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* ── NICHES ─────────────────────────────────────────────── */}
-        <section id="niches" className="px-6 md:px-14 py-24">
-          <p className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-3">🎯 Our Niches</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111] mb-2">
-            We Specialise in Nigerian<br />Street Food Businesses
-          </h2>
-          <p className="text-gray-400 text-sm mb-16 max-w-md">Two booming niches. One agency that knows them deeply.</p>
+        {/* ── NICHES ────────────────────────────────────────────── */}
+        <section id="niches" className="px-5 md:px-12 py-20 md:py-28">
+          <header className="max-w-2xl">
+            <Eyebrow className="text-palm">Two trends, one studio</Eyebrow>
+            <h2 className="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2rem,4.5vw,3.25rem)] mt-3">
+              We only build for Nigerian street food.
+            </h2>
+            <p className="mt-4 text-ink/65 leading-relaxed">
+              That focus is the point. We know your customer, your rush hours, and what makes someone order again — because we&apos;ve done it for both of these.
+            </p>
+          </header>
 
-          <div className="flex flex-col gap-20">
-            {niches.map((n, idx) => (
-              <div key={n.title} className={`grid md:grid-cols-2 gap-12 items-center ${idx % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <div>
-                  <span className={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4 ${n.color === "orange" ? "bg-orange-50 text-orange-600" : "bg-amber-50 text-amber-700"}`}>
-                    {n.tag}
-                  </span>
-                  <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#111] mb-3">{n.title}</h3>
-                  <p className="text-gray-500 leading-relaxed mb-6 max-w-md">{n.desc}</p>
-                  <a
-                    href="#contact"
-                    className={`inline-flex items-center gap-2 font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors ${
-                      n.color === "orange"
-                        ? "bg-orange-500 hover:bg-orange-600 text-white shadow-md shadow-orange-100"
-                        : "bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-100"
-                    }`}
-                  >
-                    Build my {n.color === "orange" ? "Akara" : "Kulikuli"} site →
-                  </a>
+          <div className="mt-16 flex flex-col gap-20 md:gap-28">
+            {niches.map((n, idx) => {
+              const flipped = idx % 2 === 1;
+              return (
+                <article key={n.key} className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+                  {/* text */}
+                  <div className={flipped ? "md:order-2" : ""}>
+                    <div className="flex items-center gap-3">
+                      <span className={`inline-block w-3.5 h-3.5 ${accentBg[n.accent]} border-2 border-ink rounded-sm`} />
+                      <Eyebrow className="text-ink/55">{n.label}</Eyebrow>
+                    </div>
+                    <h3 className={`font-display font-extrabold tracking-tight text-[clamp(2.4rem,5vw,3.5rem)] leading-none mt-3 ${accentText[n.accent]}`}>
+                      {n.name}
+                    </h3>
+                    <p className="mt-5 text-ink/70 leading-relaxed max-w-md">{n.desc}</p>
+                    <a
+                      href="#contact"
+                      className={`inline-block mt-7 ${accentBg[n.accent]} text-paper font-display font-bold px-6 py-3 rounded-lg border-2 border-ink shadow-[4px_4px_0_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--color-ink)] transition-all`}
+                    >
+                      Build my {n.name.toLowerCase()} site →
+                    </a>
+                  </div>
+
+                  {/* images — lead + two supporting, deliberate framing */}
+                  <div className={`grid grid-cols-5 grid-rows-2 gap-2.5 sm:gap-3 h-[300px] sm:h-[340px] md:h-[380px] ${flipped ? "md:order-1" : ""}`}>
+                    <div className="col-span-3 row-span-2 relative">
+                      <div className={`absolute inset-0 translate-x-3 translate-y-3 ${accentBg[n.accent]} rounded-xl`} aria-hidden />
+                      <div className="relative h-full rounded-xl overflow-hidden border-2 border-ink">
+                        <Image src={n.lead} alt={n.leadAlt} fill className="object-cover object-top" sizes="40vw" />
+                      </div>
+                    </div>
+                    <div className="col-span-2 relative rounded-xl overflow-hidden border-2 border-ink">
+                      <Image src={n.a} alt={n.aAlt} fill className="object-cover" sizes="25vw" />
+                    </div>
+                    <div className="col-span-2 relative rounded-xl overflow-hidden border-2 border-ink">
+                      <Image src={n.b} alt={n.bAlt} fill className="object-cover" sizes="25vw" />
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── WHAT YOU GET ──────────────────────────────────────── */}
+        <section id="what-you-get" className="bg-ink text-paper px-5 md:px-12 py-20 md:py-28">
+          <header className="max-w-2xl">
+            <Eyebrow className="text-gold">What you get</Eyebrow>
+            <h2 className="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2rem,4.5vw,3.25rem)] mt-3">
+              Everything the website needs. Nothing it doesn&apos;t.
+            </h2>
+          </header>
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+            {offerings.map((o) => (
+              <div key={o.title} className="border-t-2 border-paper/25 pt-5">
+                <div className="flex items-baseline gap-3">
+                  <span className="w-2.5 h-2.5 bg-palm rounded-sm shrink-0 translate-y-[-2px]" />
+                  <h3 className="font-display font-bold text-xl">{o.title}</h3>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-[280px] row-span-2">
-                    <Image src={n.images[0].src} alt={n.images[0].alt} fill className="object-cover object-top" />
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-[132px]">
-                    <Image src={n.images[1].src} alt={n.images[1].alt} fill className="object-cover" />
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-[132px]">
-                    <Image src={n.images[2].src} alt={n.images[2].alt} fill className="object-cover" />
-                  </div>
-                </div>
+                <p className="mt-2 text-paper/60 leading-relaxed pl-[22px]">{o.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── SERVICES ───────────────────────────────────────────── */}
-        <section id="services" className="px-6 md:px-14 py-24 bg-gray-50">
-          <p className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-3">🛠 What We Build</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111] mb-2">Everything Your Business<br />Needs Online</h2>
-          <p className="text-gray-400 text-sm mb-12 max-w-md">One agency that handles it all — design, dev, content, and launch.</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((s) => (
-              <div key={s.title} className="bg-white border border-gray-100 hover:border-orange-200 hover:shadow-md transition-all rounded-2xl p-7">
-                <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-2xl mb-5">{s.icon}</div>
-                <h3 className="font-bold text-[#111] mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+        {/* ── GALLERY ───────────────────────────────────────────── */}
+        <section className="px-5 md:px-12 py-20 md:py-28">
+          <header className="max-w-2xl">
+            <Eyebrow className="text-palm">Straight from the pan</Eyebrow>
+            <h2 className="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2rem,4.5vw,3.25rem)] mt-3">
+              We know your world.
+            </h2>
+            <p className="mt-4 text-ink/65 leading-relaxed">
+              The bubbling oil, the gold pouch, the agege bread. We design like people who actually eat this.
+            </p>
+          </header>
+          <div className="mt-12 columns-2 md:columns-3 gap-3 [&>*]:mb-3">
+            {[
+              { s: "/images/akara-plate-2.jpg", a: "A plate of fresh akara" },
+              { s: "/images/kulikuli-gold-pack.jpg", a: "Premium gold kulikuli pack" },
+              { s: "/images/frying-2.jpg", a: "Akara frying street-style" },
+              { s: "/images/kulikuli-floral-pack.jpg", a: "Floral kulikuli pack" },
+              { s: "/images/akara-bread.jpg", a: "Akara in agege bread" },
+              { s: "/images/chips-bowl.jpg", a: "Crispy akara chips in a bowl" },
+            ].map((g) => (
+              <div key={g.s} className="break-inside-avoid rounded-xl overflow-hidden border-2 border-ink">
+                <Image src={g.s} alt={g.a} width={600} height={420} className="w-full h-auto object-cover" />
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── GALLERY ────────────────────────────────────────────── */}
-        <section className="px-6 md:px-14 py-24">
-          <p className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-3">📸 The Products</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111] mb-2">We Know Your World</h2>
-          <p className="text-gray-400 text-sm mb-12 max-w-md">We don&apos;t just build sites — we understand akara, kulikuli, your customers, and the culture around it all.</p>
-          <div className="columns-2 md:columns-3 gap-3 space-y-3">
-            {gallery.map((img) => (
-              <div key={img.src} className="relative rounded-2xl overflow-hidden border border-gray-100 shadow-sm break-inside-avoid">
-                <Image src={img.src} alt={img.alt} width={600} height={400} className="w-full h-auto object-cover" />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── HOW IT WORKS ───────────────────────────────────────── */}
-        <section className="px-6 md:px-14 py-24 bg-[#fffaf5]">
-          <div className="text-center mb-16">
-            <p className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-3">⚙️ The Process</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111]">From Idea to Live Website<br />in 14 Days</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 relative max-w-4xl mx-auto">
-            <div className="hidden md:block absolute top-7 left-[calc(16.67%+28px)] right-[calc(16.67%+28px)] h-px border-t-2 border-dashed border-orange-200" />
+        {/* ── PROCESS ───────────────────────────────────────────── */}
+        <section className="bg-leaf text-paper px-5 md:px-12 py-20 md:py-28">
+          <header className="max-w-2xl">
+            <Eyebrow className="text-paper/70">How it goes</Eyebrow>
+            <h2 className="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2rem,4.5vw,3.25rem)] mt-3">
+              Pan to published in two weeks.
+            </h2>
+          </header>
+          <div className="mt-14 grid md:grid-cols-3 gap-8 md:gap-6">
             {steps.map((s) => (
-              <div key={s.num} className="text-center px-4">
-                <div className="w-14 h-14 rounded-full bg-orange-500 text-white text-lg font-extrabold flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-200">{s.num}</div>
-                <h3 className="font-bold text-[#111] mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── TESTIMONIALS ───────────────────────────────────────── */}
-        <section className="px-6 md:px-14 py-24">
-          <p className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-3">💬 Testimonials</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111] mb-12">Food Entrepreneurs<br />Who Went Digital</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {testimonials.map((t) => (
-              <div key={t.name} className="bg-white border border-gray-100 rounded-2xl p-7 flex flex-col gap-5 shadow-sm">
-                <div className="text-orange-400 text-sm">★★★★★</div>
-                <p className="text-gray-500 text-sm leading-relaxed italic flex-1">&ldquo;{t.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white shrink-0 ${t.color === "orange" ? "bg-gradient-to-br from-orange-400 to-orange-600" : "bg-gradient-to-br from-amber-400 to-amber-600"}`}>
-                    {t.initial}
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-[#111]">{t.name}</div>
-                    <div className="text-gray-400 text-xs">{t.biz}</div>
-                  </div>
+              <div key={s.n}>
+                <div className="grid place-items-center w-14 h-14 rounded-lg bg-paper text-ink font-display font-extrabold text-xl border-2 border-ink shadow-[4px_4px_0_0_rgba(0,0,0,0.35)]">
+                  {s.n}
                 </div>
+                <h3 className="font-display font-bold text-2xl mt-5">{s.title}</h3>
+                <p className="mt-2 text-paper/75 leading-relaxed max-w-xs">{s.desc}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── PRICING ────────────────────────────────────────────── */}
-        <section id="pricing" className="px-6 md:px-14 py-24 bg-gray-50">
-          <div className="text-center mb-14">
-            <p className="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-3">💰 Pricing</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#111] mb-3">Simple, Transparent Pricing</h2>
-            <p className="text-gray-400 text-sm">No hidden fees. No surprises. Pay once, own it forever.</p>
+        {/* ── TESTIMONIALS ──────────────────────────────────────── */}
+        <section className="px-5 md:px-12 py-20 md:py-28">
+          <header className="max-w-2xl">
+            <Eyebrow className="text-palm">In their words</Eyebrow>
+            <h2 className="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2rem,4.5vw,3.25rem)] mt-3">
+              The sellers who went online.
+            </h2>
+          </header>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {quotes.map((q) => (
+              <figure key={q.name} className="bg-paper border-2 border-ink rounded-xl p-7 flex flex-col shadow-[5px_5px_0_0_var(--color-ink)]">
+                <span className={`font-display font-extrabold text-5xl leading-none ${accentText[q.accent]}`} aria-hidden>&ldquo;</span>
+                <blockquote className="mt-2 text-ink/80 leading-relaxed flex-1">{q.text}</blockquote>
+                <figcaption className="mt-6 pt-4 border-t-2 border-ink/10">
+                  <div className="font-display font-bold">{q.name}</div>
+                  <div className="font-mono text-[11px] tracking-wide uppercase text-ink/50 mt-0.5">{q.biz}</div>
+                </figcaption>
+              </figure>
+            ))}
           </div>
-          <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        </section>
+
+        {/* ── PRICING ───────────────────────────────────────────── */}
+        <section id="pricing" className="px-5 md:px-12 py-20 md:py-28 bg-gold/15 border-y-2 border-ink">
+          <header className="max-w-2xl">
+            <Eyebrow className="text-nut">Pick your pack</Eyebrow>
+            <h2 className="font-display font-extrabold tracking-tight leading-[0.95] text-[clamp(2rem,4.5vw,3.25rem)] mt-3">
+              One price. Yours to keep.
+            </h2>
+            <p className="mt-4 text-ink/65 leading-relaxed">No subscriptions, no hidden fees. Pay once, own the website forever.</p>
+          </header>
+          <div className="mt-14 grid md:grid-cols-3 gap-6 items-start">
             {plans.map((p) => (
-              <div key={p.name} className={`relative rounded-2xl p-8 flex flex-col gap-5 border ${p.featured ? "border-orange-400 bg-white shadow-xl shadow-orange-100" : "border-gray-200 bg-white shadow-sm"}`}>
+              <div
+                key={p.name}
+                className={`relative rounded-xl border-2 border-ink p-8 flex flex-col ${
+                  p.featured
+                    ? "bg-ink text-paper shadow-[7px_7px_0_0_var(--color-palm)] md:-translate-y-3"
+                    : "bg-paper shadow-[5px_5px_0_0_var(--color-ink)]"
+                }`}
+              >
                 {p.featured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full whitespace-nowrap">
-                    Most Popular
-                  </div>
+                  <span className="absolute -top-3.5 left-7 bg-palm text-paper font-mono text-[10px] tracking-widest uppercase font-bold px-3 py-1 rounded border-2 border-ink">
+                    Most picked
+                  </span>
                 )}
-                <div>
-                  <p className={`text-xs font-bold uppercase tracking-widest mb-2 ${p.featured ? "text-orange-500" : "text-gray-400"}`}>{p.name}</p>
-                  <div className="text-4xl font-extrabold tracking-tight text-[#111]">{p.price}</div>
-                  <div className="text-gray-400 text-xs mt-0.5">one-time</div>
-                  <p className="text-gray-400 text-sm mt-2">{p.desc}</p>
+                <div className={`font-mono text-[11px] tracking-widest uppercase ${p.featured ? "text-gold" : "text-nut"}`}>{p.name}</div>
+                <div className="mt-3 flex items-baseline gap-1.5">
+                  <span className="font-display font-extrabold text-5xl tracking-tight">₦{p.price}</span>
                 </div>
-                <ul className="flex flex-col gap-2.5 flex-1">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                      <span className="text-orange-500 font-bold mt-0.5 shrink-0">✓</span> {f}
+                <div className={`font-mono text-[11px] tracking-wide uppercase mt-1 ${p.featured ? "text-paper/55" : "text-ink/45"}`}>{p.note}</div>
+                <ul className="mt-6 flex flex-col gap-3 flex-1">
+                  {p.feats.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm leading-snug">
+                      <span className={`font-bold mt-px ${p.featured ? "text-palm" : "text-palm"}`}>✓</span>
+                      <span className={p.featured ? "text-paper/85" : "text-ink/75"}>{f}</span>
                     </li>
                   ))}
                 </ul>
-                <a href="#contact" className={`block text-center py-3 rounded-xl text-sm font-bold transition-colors ${p.featured ? "bg-orange-500 hover:bg-orange-600 text-white shadow-md shadow-orange-100" : "border border-gray-200 hover:border-gray-400 text-[#111]"}`}>
-                  Get Started
+                <a
+                  href="#contact"
+                  className={`mt-7 text-center font-display font-bold py-3 rounded-lg border-2 border-ink transition-all ${
+                    p.featured
+                      ? "bg-palm text-paper shadow-[4px_4px_0_0_var(--color-paper)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--color-paper)]"
+                      : "bg-paper hover:bg-ink hover:text-paper"
+                  }`}
+                >
+                  Choose {p.name}
                 </a>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── CTA ────────────────────────────────────────────────── */}
-        <section id="contact" className="relative px-6 md:px-14 py-32 text-center overflow-hidden bg-[#fffaf5]">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-orange-100 rounded-full blur-[100px] opacity-60" />
-          </div>
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[#111] mb-4">
-              Ready to Take Your<br />Food Business Online?
-            </h2>
-            <p className="text-gray-400 text-base mb-10">
-              Whether it&apos;s akara, kulikuli, or any Nigerian street food — we build it. Join 50+ entrepreneurs who chose Web3Nova.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="mailto:hello@web3nova.com" className="bg-orange-500 hover:bg-orange-600 transition-colors text-white font-bold px-8 py-4 rounded-xl text-base shadow-lg shadow-orange-200">
-                Start Your Website Today →
-              </a>
-              <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" className="bg-white border border-gray-200 hover:border-gray-400 transition-colors text-[#111] font-semibold px-8 py-4 rounded-xl text-base shadow-sm">
-                💬 WhatsApp Us First
-              </a>
-            </div>
+        {/* ── CONTACT / CTA ─────────────────────────────────────── */}
+        <section id="contact" className="px-5 md:px-12 py-24 md:py-32 text-center">
+          <Eyebrow className="text-palm">Let&apos;s cook</Eyebrow>
+          <h2 className="font-display font-extrabold tracking-[-0.02em] leading-[0.9] text-[clamp(2.4rem,6vw,4.5rem)] mt-4 max-w-3xl mx-auto">
+            Put your food on the map.
+          </h2>
+          <p className="mt-5 text-ink/65 leading-relaxed max-w-md mx-auto">
+            Akara, kulikuli, or whatever you fry next — tell us about it and we&apos;ll build the website this week.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3 justify-center">
+            <a
+              href="mailto:hello@web3nova.com"
+              className="bg-palm text-paper font-display font-bold px-8 py-4 rounded-lg border-2 border-ink shadow-[5px_5px_0_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_0_var(--color-ink)] transition-all"
+            >
+              Start your website
+            </a>
+            <a
+              href="https://wa.me/2348000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-paper font-display font-bold px-8 py-4 rounded-lg border-2 border-ink hover:bg-ink hover:text-paper transition-colors"
+            >
+              Chat on WhatsApp
+            </a>
           </div>
         </section>
       </main>
 
-      {/* ── FOOTER ─────────────────────────────────────────────── */}
-      <footer className="px-6 md:px-14 py-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400 bg-white">
-        <span className="font-bold text-base text-[#111]">web3<span className="text-orange-500">nova</span></span>
-        <span>© 2025 Web3Nova. Built for Nigerian food entrepreneurs.</span>
-        <div className="flex gap-6">
-          {["Instagram", "Twitter", "WhatsApp"].map((s) => (
-            <a key={s} href="#" className="hover:text-[#111] transition-colors">{s}</a>
-          ))}
+      {/* ── FOOTER ────────────────────────────────────────────── */}
+      <footer className="bg-ink text-paper px-5 md:px-12 py-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <div className="flex items-center gap-2.5">
+              <span className="grid place-items-center w-7 h-7 rounded-md bg-paper">
+                <span className="w-2.5 h-2.5 rounded-full bg-palm" />
+              </span>
+              <span className="font-display font-extrabold text-xl">
+                web3<span className="text-palm">nova</span>
+              </span>
+            </div>
+            <p className="mt-3 font-mono text-[11px] tracking-wide uppercase text-paper/50 max-w-xs leading-relaxed">
+              Websites for Nigeria&apos;s street-food brands.
+            </p>
+          </div>
+          <div className="flex gap-6 font-mono text-xs tracking-wide uppercase">
+            {["Instagram", "Twitter / X", "WhatsApp"].map((s) => (
+              <a key={s} href="#" className="text-paper/60 hover:text-palm transition-colors">{s}</a>
+            ))}
+          </div>
+        </div>
+        <div className="mt-10 pt-6 border-t-2 border-paper/15 font-mono text-[11px] tracking-wide uppercase text-paper/40">
+          © 2025 Web3Nova · Made in Naija
         </div>
       </footer>
     </>
