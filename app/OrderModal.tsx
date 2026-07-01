@@ -383,7 +383,7 @@ function OrderModal({ onClose }: { onClose: () => void }) {
                   <QRCodeSVG
                     value={paymentUri}
                     size={168}
-                    bgColor="#faf2e2"
+                    bgColor="#ffffff"
                     fgColor="#1c1206"
                     level="M"
                   />
