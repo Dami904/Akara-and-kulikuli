@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PreorderButton } from "./OrderModal";
 
 /* ─── DATA ────────────────────────────────────────────────────── */
 
@@ -93,12 +94,17 @@ export default function Home() {
             </a>
           ))}
         </div>
-        <a
-          href="#contact"
-          className="bg-ink text-paper font-display font-bold text-sm px-5 py-2.5 rounded-lg shadow-[4px_4px_0_0_var(--color-palm)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--color-palm)] transition-all"
-        >
-          Start a site
-        </a>
+        <div className="flex items-center gap-2.5">
+          <PreorderButton className="bg-palm text-paper font-display font-bold text-sm px-5 py-2.5 rounded-lg border-2 border-ink shadow-[4px_4px_0_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--color-ink)] transition-all">
+            Preorder
+          </PreorderButton>
+          <a
+            href="#contact"
+            className="hidden sm:inline-block bg-ink text-paper font-display font-bold text-sm px-5 py-2.5 rounded-lg shadow-[4px_4px_0_0_var(--color-palm)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_var(--color-palm)] transition-all"
+          >
+            Start a site
+          </a>
+        </div>
       </nav>
 
       <main id="top">
@@ -123,12 +129,9 @@ export default function Home() {
               >
                 Start your website
               </a>
-              <a
-                href="#niches"
-                className="bg-paper font-display font-bold px-7 py-3.5 rounded-lg border-2 border-ink hover:bg-ink hover:text-paper transition-colors"
-              >
-                See the work
-              </a>
+              <PreorderButton className="bg-paper font-display font-bold px-7 py-3.5 rounded-lg border-2 border-ink hover:bg-ink hover:text-paper transition-colors">
+                Preorder now
+              </PreorderButton>
             </div>
             <div className="mt-9 flex flex-wrap gap-x-7 gap-y-2 font-mono text-[11px] tracking-wide uppercase text-ink/55">
               <span><b className="text-ink">50+</b> brands built</span>
@@ -142,7 +145,7 @@ export default function Home() {
             {/* offset color block behind */}
             <div className="absolute inset-0 translate-x-3.5 translate-y-3.5 md:translate-x-5 md:translate-y-5 bg-leaf rounded-2xl" aria-hidden />
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-ink">
-              <Image src="/images/kulikuli-owner.jpg" alt="A kulikuli founder holding her branded pack" fill priority className="object-cover object-top" sizes="(max-width:1024px) 78vw, 40vw" />
+              <Image src="/images/creator-akara.jpg" alt="A new-age akara seller in a shirt and tie lifting fresh akara from the frying pan" fill priority className="object-cover object-top" sizes="(max-width:1024px) 78vw, 40vw" />
             </div>
             {/* rotated stamp */}
             <div className="absolute -top-7 -left-3 sm:-left-5 rotate-[-12deg]">
